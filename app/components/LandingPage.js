@@ -17,9 +17,9 @@ class LandingPage extends React.Component {
       .then((response) => {
         console.log(response.data)
         if (response.status === 200) {
-          this.setState({
-            hashId: response.data
-          })
+          console.log('abc')
+          this.setState({hashId: response.data})
+          // this.state.hashId = response.data
         }
       })
       .catch((err) =>
@@ -28,6 +28,7 @@ class LandingPage extends React.Component {
   }
   render() {
     console.log('Landing Page')
+    console.log('hashid:' + this.state.hashId)
     return (
       <div>
         <MainBody />

@@ -39,10 +39,10 @@ export const floatRight = {
 export const maxHeight = {
   height: '100%'
 }
-export const resumePageStyle = {
+export const pageStyle = {
   background: 'transparent',
   height: '100%'
 }
-export const resumeStyle = {
+export const mainPageStyle = {
   height: '100%'
 }
