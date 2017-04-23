@@ -24,7 +24,6 @@ export default class NavBar extends React.Component {
 
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul className="nav navbar-nav">
-                <li><a href="#"><i className="fa fa-check" aria-hidden="true"/> Host</a></li>
                 <li><a href="#"><i className="fa fa-github" aria-hidden="true"/> Source</a></li>
               </ul>
               <ul className="nav navbar-nav navbar-right">
