@@ -1,1 +1,3 @@
-# text-formatter
+# Text Formatter
+
+# Created by Jon Topielski

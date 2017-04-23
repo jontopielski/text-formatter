@@ -1,0 +1,35 @@
+{
+  "name": "text-formatter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --inline --content-base . --history-api-fallback",
+    "prod": "webpack --inline --content-base . --history-api-fallback -p"
+  },
+  "author": "Jon Topielski <jontopielski@gmail.com> (http://topielski.com)",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.9.0",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.1",
+    "neal-react": "^0.2.5",
+    "react": "^0.14.6",
+    "react-addons-css-transition-group": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "react-latex": "0.0.8",
+    "react-router": "^2.0.0-rc5",
+    "tether": "^1.3.7"
+  },
+  "devDependencies": {
+    "babel-core": "^6.4.5",
+    "babel-loader": "^6.2.1",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.3.13",
+    "css-loader": "^0.23.1",
+    "html-webpack-plugin": "^2.7.1",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.11",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
