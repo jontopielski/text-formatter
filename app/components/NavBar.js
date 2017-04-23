@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NavBar = React.createClass({
+class NavBar extends React.Component {
   render() {
     return (
       <div>
@@ -33,6 +33,6 @@ const NavBar = React.createClass({
       </div>
     )
   }
-})
+}
 
 export default NavBar

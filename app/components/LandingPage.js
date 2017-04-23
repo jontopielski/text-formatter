@@ -4,12 +4,12 @@ import { Link } from 'react-router'
 import { server_url } from '../config/Globals'
 import { landingPageStyles } from '../styles/landing_page'
 
-const LandingPage = React.createClass({
+class LandingPage extends React.createClass {
   getInitialState() {
     return {
       hashId: ''
     }
-  },
+  }
   componentDidMount() {
     axios.get(`${server_url}/hash`)
       .then((response) => {
@@ -23,7 +23,7 @@ const LandingPage = React.createClass({
       .catch((err) =>
         console.log(err)
       )
-  },
+  }
   render () {
     return (
       <div className='fa' style={landingPageStyles.maxHeightWidth}>
@@ -84,6 +84,6 @@ const LandingPage = React.createClass({
       </div>
     )
   }
-})
+}
 
 export default LandingPage

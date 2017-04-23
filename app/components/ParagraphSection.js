@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
+import ContentEditable from 'react-contenteditable'
 
-const ParagraphSection = React.createClass({
-  render() {
+
+function ParagraphSection ({ paragraphText, handleChangeText }) {
     return (
-      <div>
-        <p>Paragraph Section</p>
-      </div>
+      <ContentEditable
+        html={paragraphText}
+        disabled={false}
+        onChange={handleChangeText}
+      />
     )
-  }
-})
+}
+
+ParagraphSection.propTypes = {
+  paragraphText: PropTypes.string.isRequired,
+  handleChangeText: PropTypes.func.isRequired
+}
 
 export default ParagraphSection
