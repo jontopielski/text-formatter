@@ -7,8 +7,10 @@ export default class SideBarBody extends React.Component {
   }
   render() {
     return (
-      <div className='col-lg-2 bg-info'>
-        <p>Side Bar Body</p>
+      <div className='col-lg-2'>
+        <div className='text-center'>
+          <p>Share</p>
+        </div>
         <SideBar />
       </div>
     )

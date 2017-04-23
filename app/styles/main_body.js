@@ -1,4 +1,4 @@
-export const landingPageStyles = {
+export const mainBodyStyles = {
   landingPageBody: {
     background: 'rgb(245,245,245)',
     color: 'green',
@@ -11,13 +11,10 @@ export const landingPageStyles = {
   },
   headerStyling: {
     textAlign: 'center',
-    backgroundImage: 'url("https://s3-us-west-2.amazonaws.com/resume-gen/images/resume_stock_photo.jpg")',
-    backgroundSize: 'cover',
-    padding: '150px',
+    padding: '20px',
     color: 'white',
-    textShadow: '1px 1px 5px black',
     width: '100%',
-    height: '60%'
+    height: '50%'
   },
   cardStyling: {
     padding: '50px',
@@ -31,24 +28,21 @@ export const landingPageStyles = {
     height: '10%',
   },
   primaryText: {
-    fontFamily: 'Montserrat, sans-serif',
-    color: 'white',
+    fontFamily: 'Open Sans, sans-serif',
+    color: '#5bc0de',
     fontSize: '70px',
   },
   secondaryText: {
-    fontFamily: 'Montserrat, sans-serif',
-    fontSize: '30px',
+    fontFamily: 'Open Sans, sans-serif',
+    fontSize: '40px',
   },
   descriptionText: {
-    fontFamily: 'Montserrat, sans-serif',
+    fontFamily: 'Open Sans, sans-serif',
     fontSize: '40px',
-    color: 'white',
-    opacity: '0.9',
-    fontWeight: 'lighter',
-    marginTop: '1em'
+    color: '#5bc0de',
   },
   cardText: {
-    fontFamily: 'Montserrat, sans-serif',
+    fontFamily: 'Open Sans, sans-serif',
     fontWeight: 'lighter',
     opacity: '.8',
     marginTop: '1.5em',

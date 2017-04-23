@@ -2,6 +2,7 @@ import React from 'react'
 import TextSections from './TextSections'
 import SideBarBody from './SideBarBody'
 import MyEditor from './MyEditor'
+import { mainBodyStyles } from '../styles/main_body'
 
 class MainBody extends React.Component {
   constructor(props) {
@@ -10,10 +11,15 @@ class MainBody extends React.Component {
   render() {
     console.log('MainBody')
     return (
-      <div className='container-fluid bg-warning'>
-        <p>Main Body</p>
-        <TextSections />
-        <SideBarBody />
+      <div className='container-fluid jumbotron'>
+        <div style={mainBodyStyles.headerStyling}>
+          <h1 style={mainBodyStyles.primaryText}>Paraform</h1>
+          <p style={mainBodyStyles.descriptionText}>Tell your story..</p>
+        </div>
+        <div>
+          <TextSections />
+          <SideBarBody />
+        </div>
       </div>
     )
   }

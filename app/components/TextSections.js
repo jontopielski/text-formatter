@@ -19,7 +19,7 @@ export default class TextSections extends React.Component {
   }
   render() {
     return (
-      <div className='col-lg-8 col-lg-offset-2 bg-success'>
+      <div className='col-lg-8 col-lg-offset-2'>
         <ParagraphSection />
       </div>
     )
