@@ -6,7 +6,7 @@ export default class SideBar extends React.Component {
   }
   render() {
     return (
-      <div style={{paddingLeft: '3.5em'}}>
+      <div style={{paddingLeft: '3.65em'}}>
         <ul className="fa-ul">
           <li><a className="btn btn-primary" aria-label="Settings">
             <i className="fa fa-twitter" aria-hidden="true"></i>

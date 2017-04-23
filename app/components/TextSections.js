@@ -1,7 +1,6 @@
 import React from 'react'
 import TitleSection from './TitleSection'
 import ParagraphSection from './ParagraphSection'
-import MyEditor from './MyEditor'
 
 export default class TextSections extends React.Component {
   constructor(props) {

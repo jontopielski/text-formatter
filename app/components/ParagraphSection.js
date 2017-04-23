@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Editor, EditorState, RichUtils} from 'draft-js';
+import {Editor, EditorState, RichUtils, convertToRaw, convertFromRaw} from 'draft-js';
 import '../styles/RichEditor.css'
 
 class ParagraphSection extends React.Component {
@@ -62,6 +62,13 @@ class ParagraphSection extends React.Component {
         className += ' RichEditor-hidePlaceholder';
       }
     }
+    console.log('text:')
+    console.log(contentState.getPlainText())
+    console.log('raw:')
+    console.log(convertToRaw(contentState))
+    let rawHtml = convertToRaw(contentState)
+    console.log('conversion from raw:')
+    console.log(convertFromRaw(rawHtml).getPlainText())
 
     return (
       <div className="RichEditor-root">
@@ -97,6 +104,16 @@ const styleMap = {
     fontSize: 16,
     padding: 2,
   },
+  BLOG: {
+    fontFamily: 'openSans',
+    fontWeight: 400,
+    fontStyle: 'normal',
+    lineHeight: 1.58,
+    letterSpacing: '-.003em',
+    fontSize: 21,
+    padding: 1,
+    color: 'rgb(0,0,0,.8)'
+  }
 };
 
 function getBlockStyle(block) {
@@ -124,6 +141,29 @@ class StyleButton extends React.Component {
     return (
       <span className={className} onMouseDown={this.onToggle}>
         {this.props.label}
+      </span>
+    );
+  }
+}
+
+class FormatButton extends React.Component {
+  constructor() {
+    super();
+    this.onToggle = (e) => {
+      e.preventDefault();
+      this.props.onToggle(this.props.style);
+    };
+  }
+
+  render() {
+    let className = 'RichEditor-styleButton';
+    if (this.props.active) {
+      className += ' RichEditor-activeButton';
+    }
+
+    return (
+      <span className={className} onMouseDown={this.onToggle}>
+        <button type="button" className="btn btn-primary">{this.props.label}</button>
       </span>
     );
   }
@@ -169,7 +209,7 @@ var INLINE_STYLES = [
   {label: 'Bold', style: 'BOLD'},
   {label: 'Italic', style: 'ITALIC'},
   {label: 'Underline', style: 'UNDERLINE'},
-  {label: 'Monospace', style: 'CODE'},
+  {label: 'Monospace', style: 'CODE'}
 ];
 
 const InlineStyleControls = (props) => {
@@ -185,6 +225,13 @@ const InlineStyleControls = (props) => {
           style={type.style}
         />
       )}
+      <FormatButton
+        key={'Format'}
+        active={currentStyle.has('BLOG')}
+        label={'Format'}
+        onToggle={props.onToggle}
+        style={'BLOG'}
+      />
     </div>
   );
 };

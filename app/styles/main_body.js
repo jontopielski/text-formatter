@@ -38,7 +38,7 @@ export const mainBodyStyles = {
   },
   descriptionText: {
     fontFamily: 'Open Sans, sans-serif',
-    fontSize: '40px',
+    fontSize: '35px',
     color: '#5bc0de',
   },
   cardText: {

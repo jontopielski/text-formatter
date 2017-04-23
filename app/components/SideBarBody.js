@@ -9,7 +9,7 @@ export default class SideBarBody extends React.Component {
     return (
       <div className='col-lg-2'>
         <div className='text-center'>
-          <p>Share</p>
+          <p className='lead'>Share</p>
         </div>
         <SideBar />
       </div>
