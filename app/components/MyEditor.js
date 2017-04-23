@@ -8,9 +8,11 @@ export default class MyEditor extends React.Component {
     this.onChange = (editorState) => this.setState({editorState});
   }
   render() {
-    console.log('MyEditor')
+    console.log(this.state)
     return (
-        <Editor editorState={this.state.editorState} onChange={this.onChange} />
+        <Editor
+          editorState={this.state.editorState}
+          onChange={this.onChange} />
     );
   }
 }

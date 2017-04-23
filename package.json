@@ -12,8 +12,11 @@
   "dependencies": {
     "axios": "^0.16.1",
     "bootstrap": "^3.3.7",
+    "classnames": "^2.2.5",
     "draft-js": "^0.10.0",
+    "es6-shim": "^0.35.3",
     "history": "^4.6.1",
+    "immutable": "^3.8.1",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-contenteditable": "^2.0.2",

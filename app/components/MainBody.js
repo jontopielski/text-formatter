@@ -14,7 +14,6 @@ class MainBody extends React.Component {
         <p>Main Body</p>
         <TextSections />
         <SideBarBody />
-        <MyEditor />
       </div>
     )
   }
