@@ -1,7 +1,11 @@
 import React from 'react'
 
-class NavBar extends React.Component {
+export default class NavBar extends React.Component {
+  constructor(props) {
+    super(props)
+  }
   render() {
+    console.log('NavBar')
     return (
       <div>
         <nav className="navbar navbar-default navbar-fixed-top" style={{position: 'inherit'}}>
@@ -34,5 +38,3 @@ class NavBar extends React.Component {
     )
   }
 }
-
-export default NavBar

@@ -1,10 +1,13 @@
 import React from 'react'
 import { maxHeight } from '../styles'
-import LandingPage from './LandingPage'
 import NavBar from './NavBar'
 
-const Root = React.createClass({
+export default class Root extends React.Component {
+  constructor(props) {
+    super(props)
+  }
 	render() {
+    console.log('Root')
     return (
       <div>
         <NavBar />
@@ -12,6 +15,4 @@ const Root = React.createClass({
       </div>
     )
 	}
-})
-
-export default Root
+}

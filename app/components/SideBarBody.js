@@ -1,7 +1,10 @@
 import React from 'react'
 import SideBar from './SideBar'
 
-const SideBarBody = React.createClass({
+export default class SideBarBody extends React.Component {
+  constructor(props) {
+    super(props)
+  }
   render() {
     return (
       <div className='col-lg-2 bg-info'>
@@ -10,6 +13,4 @@ const SideBarBody = React.createClass({
       </div>
     )
   }
-})
-
-export default SideBarBody
+}

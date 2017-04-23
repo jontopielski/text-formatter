@@ -1,6 +1,6 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import ContentEditable from 'react-contenteditable'
-
 
 function ParagraphSection ({ paragraphText, handleChangeText }) {
     return (

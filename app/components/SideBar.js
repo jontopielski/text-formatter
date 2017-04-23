@@ -1,6 +1,9 @@
 import React from 'react'
 
-const SideBar = React.createClass({
+export default class SideBar extends React.Component {
+  constructor(props) {
+    super(props)
+  }
   render() {
     return (
       <div>
@@ -8,6 +11,4 @@ const SideBar = React.createClass({
       </div>
     )
   }
-})
-
-export default SideBar
+}
