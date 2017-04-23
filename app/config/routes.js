@@ -1,15 +1,19 @@
 import React from 'react'
-import { Router, Route, Layout, BrowserRouter, IndexRoute } from 'react-router-dom'
+import { Router, Route, Layout, BrowserRouter, HashRouter } from 'react-router-dom'
 import Root from '../components/Root'
-import MainBody from '../components/MainBody'
+import EditSection from '../components/EditSection'
+import LandingPage from '../components/LandingPage'
 import ErrorPage from '../components/ErrorPage'
 
 const routes = (
-  <BrowserRouter>
-    <Root>
-      <Route component={MainBody} />
-    </Root>
-  </BrowserRouter>
+  <HashRouter>
+    <div>
+      <Root>
+        <Route exact path='/' component={LandingPage} />
+      </Root>
+      <Route exact path='/pages/:hashId' component={EditSection} />
+    </div>
+  </HashRouter>
 );
 
 export default routes

@@ -7,7 +7,18 @@ class ParagraphSection extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {editorState: EditorState.createEmpty()};
+    let hashId;
+    console.log(this.props)
+    if (!(typeof this.props.params === 'undefined') && !(typeof this.props.params.hashId === 'undefined')) {
+      hashId = this.props.params.hashId;
+    } else {
+      hashId = ''
+    }
+    console.log('hashId:' + hashId);
+    this.state = {
+      editorState: EditorState.createEmpty(),
+      hashId: hashId
+    };
 
     this.focus = () => this.refs.editor.focus();
     this.onChange = (editorState) => this.setState({editorState});
@@ -62,35 +73,40 @@ class ParagraphSection extends React.Component {
         className += ' RichEditor-hidePlaceholder';
       }
     }
-    console.log('text:')
+    /*console.log('text:')
     console.log(contentState.getPlainText())
     console.log('raw:')
     console.log(convertToRaw(contentState))
     let rawHtml = convertToRaw(contentState)
     console.log('conversion from raw:')
-    console.log(convertFromRaw(rawHtml).getPlainText())
+    console.log(convertFromRaw(rawHtml).getPlainText())*/
 
     return (
-      <div className="RichEditor-root">
-        <BlockStyleControls
-          editorState={editorState}
-          onToggle={this.toggleBlockType}
-        />
-        <InlineStyleControls
-          editorState={editorState}
-          onToggle={this.toggleInlineStyle}
-        />
-        <div className={className} onClick={this.focus} >
-          <Editor
-            blockStyleFn={getBlockStyle}
-            customStyleMap={styleMap}
+      <div>
+        <div className="RichEditor-root">
+          <BlockStyleControls
             editorState={editorState}
-            handleKeyCommand={this.handleKeyCommand}
-            onChange={this.onChange}
-            onTab={this.onTab}
-            ref="editor"
-            spellCheck={true}
+            onToggle={this.toggleBlockType}
           />
+          <InlineStyleControls
+            editorState={editorState}
+            onToggle={this.toggleInlineStyle}
+          />
+          <div className={className} onClick={this.focus} >
+            <Editor
+              blockStyleFn={getBlockStyle}
+              customStyleMap={styleMap}
+              editorState={editorState}
+              handleKeyCommand={this.handleKeyCommand}
+              onChange={this.onChange}
+              onTab={this.onTab}
+              ref="editor"
+              spellCheck={true}
+            />
+          </div>        
+        </div>
+        <div className='text-center' style={{paddingTop: '2em'}}>
+          <button type="button" className="btn btn-success">Host</button>
         </div>
       </div>
     );
