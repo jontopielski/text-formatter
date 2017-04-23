@@ -6,4 +6,4 @@ venv
 *.log
 *.pdf
 *.tex
-server/resume.json
+server/editor_state.json

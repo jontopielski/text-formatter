@@ -1,24 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import axios from 'axios'
 import {Editor, EditorState, RichUtils, convertToRaw, convertFromRaw} from 'draft-js';
+import { server_url, pages_url } from '../config/Globals'
 import '../styles/RichEditor.css'
 
 class ParagraphSection extends React.Component {
 
   constructor(props) {
     super(props);
-    let hashId;
-    console.log(this.props)
-    if (!(typeof this.props.params === 'undefined') && !(typeof this.props.params.hashId === 'undefined')) {
-      hashId = this.props.params.hashId;
-    } else {
-      hashId = ''
-    }
-    console.log('hashId:' + hashId);
+    // let hashId;
+    // if (!(typeof this.props.params === 'undefined') && !(typeof this.props.params.hashId === 'undefined')) {
+    //   hashId = this.props.params.hashId;
+    // } else {
+    //   hashId = ''
+    // }
+    console.log('Constructing ParagraphSection')
+    // let initialEditorState = this.props.editorState == {} ? EditorState.createEmpty() : this.props.editorState
     this.state = {
       editorState: EditorState.createEmpty(),
-      hashId: hashId
+      hashId: this.props.hashId
     };
+    console.log(typeof this.state.editorState)
 
     this.focus = () => this.refs.editor.focus();
     this.onChange = (editorState) => this.setState({editorState});
@@ -27,7 +30,23 @@ class ParagraphSection extends React.Component {
     this.onTab = (e) => this._onTab(e);
     this.toggleBlockType = (type) => this._toggleBlockType(type);
     this.toggleInlineStyle = (style) => this._toggleInlineStyle(style);
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
+
+  componentDidMount() {
+    console.log('Checking for existing hashId..')
+    axios.get(`${pages_url}/${this.state.hashId}/editor_state.json`)
+      .then((response) => {
+        if (response.status === 200) {
+          console.log('Found existing data!')
+          console.log(response.data)
+          this.onChange(response.data)
+        }
+      })
+      .catch((err) =>
+        console.log(err)
+      )
+    }
 
   _handleKeyCommand(command) {
     const {editorState} = this.state;
@@ -60,6 +79,20 @@ class ParagraphSection extends React.Component {
         inlineStyle
       )
     );
+  }
+
+  handleSubmit(e) {
+    e.preventDefault()
+    console.log('Sending request..')
+    axios({
+      method: 'post',
+      url: `${server_url}/pages?hashId=${this.state.hashId}`,
+      data: convertToRaw(this.state.editorState.getCurrentContent())
+    })
+    .then((response) => {
+      console.log('Sent request.')
+    })
+    .catch((err) => console.log(err))
   }
 
   render() {
@@ -105,12 +138,20 @@ class ParagraphSection extends React.Component {
             />
           </div>        
         </div>
-        <div className='text-center' style={{paddingTop: '2em'}}>
-          <button type="button" className="btn btn-success">Host</button>
+        <div className='text-center' style={{paddingTop: '2em', paddingBottom: '2em'}}>
+          <button type="button" className="btn btn-success" onClick={this.handleSubmit}>>
+            Host
+          </button>
         </div>
       </div>
     );
   }
+}
+
+
+
+ParagraphSection.propTypes = {
+  hashId: PropTypes.string
 }
 
 const styleMap = {

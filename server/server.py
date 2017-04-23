@@ -217,6 +217,35 @@ def generate_latex():
 
   return jsonify('Ok')
 
+@app.route('/api/pages', methods=['POST'])
+def update_page():
+  if 'hashId' not in request.args:
+      return error_message('hashId missing from request arguments.')
+
+  hash_code = request.args['hashId']
+  print hash_code
+
+  try:
+    json_body = json_loads_byteified(json.dumps(request.get_json(), ensure_ascii=False))
+  except:
+    return error_message('Unable to convert json in request body to readable format.')
+
+  if json_body is None:
+    return error_message('No valid json found in request body.')
+
+  print json_body
+
+  with open('editor_state.json', 'wrb') as json_file:
+    json.dump(json_body, json_file)
+  json_file = open('editor_state.json', 'rb')
+
+  populate_aws_credentials()
+  conn = tinys3.Connection(aws_access_id, aws_secret_id, endpoint='s3-us-west-2.amazonaws.com')
+  print 'Uploading file..'
+  conn.upload('editor_state.json', json_file, 'paraform/pages/%s' % hash_code)
+
+  return jsonify('Ok')
+
 def error_message(message):
   return jsonify({
     'error_message': message
