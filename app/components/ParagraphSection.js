@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import axios from 'axios'
-import {Editor, EditorState, RichUtils, convertToRaw, convertFromRaw} from 'draft-js';
+import {Editor, EditorState, RichUtils, convertToRaw, convertFromRaw, ContentState} from 'draft-js';
 import { server_url, pages_url } from '../config/Globals'
 import '../styles/RichEditor.css'
 
@@ -21,8 +21,6 @@ class ParagraphSection extends React.Component {
       editorState: EditorState.createEmpty(),
       hashId: this.props.hashId
     };
-    console.log(typeof this.state.editorState)
-
     this.focus = () => this.refs.editor.focus();
     this.onChange = (editorState) => this.setState({editorState});
 
@@ -39,8 +37,10 @@ class ParagraphSection extends React.Component {
       .then((response) => {
         if (response.status === 200) {
           console.log('Found existing data!')
-          console.log(response.data)
-          this.onChange(response.data)
+          console.log(convertFromRaw(response.data))
+          const updatedEditorState = EditorState.push(this.state.editorState, convertFromRaw(response.data));
+          this.setState({editorState: updatedEditorState})
+          // this.state.EditorState.currentContent = ContentState.createFromBlockArray((response.data))
         }
       })
       .catch((err) =>
@@ -97,6 +97,7 @@ class ParagraphSection extends React.Component {
 
   render() {
     const {editorState} = this.state;
+    console.log(editorState.getCurrentContent())
     // If the user changes block type before entering any text, we can
     // either style the placeholder or hide it. Let's just hide it now.
     let className = 'RichEditor-editor';
