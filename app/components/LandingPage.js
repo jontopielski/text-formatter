@@ -15,9 +15,7 @@ class LandingPage extends React.Component {
   componentDidMount() {
     axios.get(`${server_url}/hash`)
       .then((response) => {
-        console.log(response.data)
         if (response.status === 200) {
-          console.log('abc')
           this.setState({hashId: response.data})
           // this.state.hashId = response.data
         }
@@ -27,8 +25,7 @@ class LandingPage extends React.Component {
       )
   }
   render() {
-    console.log('Landing Page')
-    console.log('hashid:' + this.state.hashId)
+    console.log('Hash Id:' + this.state.hashId)
     return (
       <div>
         <MainBody />

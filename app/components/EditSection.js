@@ -14,9 +14,6 @@ class EditSection extends React.Component {
     }
   }
   render() {
-    console.log('EditSection')
-    console.log(this.props.match.params.hashId)
-    console.log(this.state.editorState)
     return (
       <div>
         <MainBody />

@@ -8,7 +8,6 @@ class MainBody extends React.Component {
     super(props)
   }
   render() {
-    console.log('MainBody')
     return (
       <div style={mainBodyStyles.headerStyling}>
         <h1 style={mainBodyStyles.primaryText}>Paraform</h1>
