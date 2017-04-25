@@ -24,10 +24,14 @@ export default class NavBar extends React.Component {
 
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul className="nav navbar-nav">
-                <li><a target="_blank" href="https://github.com/topielski/text-formatter"><i className="fa fa-github" aria-hidden="true"/> Source</a></li>
+                <li><a target="_blank" href="https://github.com/topielski/text-formatter">
+                  <i className="fa fa-github" aria-hidden="true"/> Source</a>
+                </li>
               </ul>
               <ul className="nav navbar-nav navbar-right">
-                <li><a href="#">By Jon Topielski</a></li>
+                <li><a target="_blank" href="https://www.linkedin.com/in/jontopielski/">
+                <i className="fa fa-linkedin-square" aria-hidden="true"/> Jon Topielski</a>
+                </li>
               </ul>
             </div>
           </div>

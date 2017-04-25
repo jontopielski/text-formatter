@@ -1,5 +1,4 @@
 import React from 'react'
-import TitleSection from './TitleSection'
 import ParagraphSection from './ParagraphSection'
 
 export default class TextSections extends React.Component {

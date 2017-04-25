@@ -8,10 +8,6 @@ export default class SideBarBody extends React.Component {
   render() {
     return (
       <div className='col-lg-2'>
-        <div className='text-center'>
-          <p className='lead'>Share</p>
-        </div>
-        <SideBar />
       </div>
     )
   }

@@ -149,7 +149,6 @@ const styleMap = {
   },
   BLOG: {
     fontFamily: 'openSans',
-    fontWeight: 400,
     fontStyle: 'normal',
     lineHeight: 1.58,
     letterSpacing: '-.003em',
@@ -252,7 +251,8 @@ var INLINE_STYLES = [
   {label: 'Bold', style: 'BOLD'},
   {label: 'Italic', style: 'ITALIC'},
   {label: 'Underline', style: 'UNDERLINE'},
-  {label: 'Monospace', style: 'CODE'}
+  {label: 'Monospace', style: 'CODE'},
+  {label: 'Readable', style: 'BLOG'}
 ];
 
 const InlineStyleControls = (props) => {
@@ -268,13 +268,6 @@ const InlineStyleControls = (props) => {
           style={type.style}
         />
       )}
-      <FormatButton
-        key={'Format'}
-        active={currentStyle.has('BLOG')}
-        label={'Format'}
-        onToggle={props.onToggle}
-        style={'BLOG'}
-      />
     </div>
   );
 };
