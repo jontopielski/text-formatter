@@ -11,28 +11,12 @@ class EditSection extends React.Component {
     super(props)
     this.state = {
       hashId: this.props.match.params.hashId
-      // editorState: EditorState.createEmpty()
     }
   }
-  // componentDidMount() {
-  //   console.log('Checking for existing hashId..')
-  //   axios.get(`${pages_url}/${this.state.hashId}/editor_state.json`)
-  //     .then((response) => {
-  //       if (response.status === 200) {
-  //         console.log('Found existing data!')
-  //         console.log(response.data)
-  //         this.editorState = response.data
-  //       }
-  //     })
-  //     .catch((err) =>
-  //       console.log(err)
-  //     )
-  //   }
   render() {
     console.log('EditSection')
     console.log(this.props.match.params.hashId)
     console.log(this.state.editorState)
-
     return (
       <div>
         <MainBody />

@@ -9,14 +9,6 @@ class ParagraphSection extends React.Component {
 
   constructor(props) {
     super(props);
-    // let hashId;
-    // if (!(typeof this.props.params === 'undefined') && !(typeof this.props.params.hashId === 'undefined')) {
-    //   hashId = this.props.params.hashId;
-    // } else {
-    //   hashId = ''
-    // }
-    console.log('Constructing ParagraphSection')
-    // let initialEditorState = this.props.editorState == {} ? EditorState.createEmpty() : this.props.editorState
     this.state = {
       editorState: EditorState.createEmpty(),
       hashId: this.props.hashId
@@ -107,13 +99,6 @@ class ParagraphSection extends React.Component {
         className += ' RichEditor-hidePlaceholder';
       }
     }
-    /*console.log('text:')
-    console.log(contentState.getPlainText())
-    console.log('raw:')
-    console.log(convertToRaw(contentState))
-    let rawHtml = convertToRaw(contentState)
-    console.log('conversion from raw:')
-    console.log(convertFromRaw(rawHtml).getPlainText())*/
 
     return (
       <div>

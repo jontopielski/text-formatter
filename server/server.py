@@ -1,12 +1,6 @@
 from flask import Flask, request, jsonify
-from pylatex import Document, Section, Subsection, Command, Package, UnsafeCommand, Tabular
-from pylatex.base_classes import Environment
-from pylatex.utils import italic, NoEscape
-from jsonschema import validate, ValidationError, SchemaError
 import random, string, json
 import tinys3
-import sys, fileinput
-import requests
 import os, time
 
 app = Flask(__name__)

@@ -35,7 +35,7 @@ class LandingPage extends React.Component {
         <div className='text-center'>
           <Link to={`/pages/${this.state.hashId}`}>
             <button type='button' className='btn btn-lg btn-primary' style={mainBodyStyles.buttonStyling}>
-              Get Started
+              Start Writing
             </button>
           </Link>
         </div>

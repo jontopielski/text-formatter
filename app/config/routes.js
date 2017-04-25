@@ -12,6 +12,7 @@ const routes = (
         <Route exact path='/' component={LandingPage} />
       </Root>
       <Route exact path='/pages/:hashId' component={EditSection} />
+      <Route exact path='/pages' component={ErrorPage} />
     </div>
   </HashRouter>
 );
