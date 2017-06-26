@@ -3,6 +3,7 @@ import axios from 'axios'
 import MainBody from './MainBody'
 import SideBarBody from './SideBarBody'
 import ParagraphSection from './ParagraphSection'
+import InputFieldSection from './InputFieldSection'
 import { pages_url } from '../config/Globals'
 import { EditorState } from 'draft-js'
 
@@ -14,9 +15,6 @@ class EditSection extends React.Component {
     }
   }
   render() {
-    console.log('EditSection')
-    console.log(this.props.match.params.hashId)
-    console.log(this.state.editorState)
     return (
       <div>
         <MainBody />
@@ -24,6 +22,8 @@ class EditSection extends React.Component {
           <ParagraphSection
             hashId={this.state.hashId}
           />
+          <InputFieldSection>
+          </InputFieldSection>
         </div>
         <SideBarBody />
       </div>

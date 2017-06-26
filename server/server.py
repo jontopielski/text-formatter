@@ -2,6 +2,11 @@ from flask import Flask, request, jsonify
 import random, string, json
 import tinys3
 import os, time
+# from sklearn.svm import SVC
+from textblob import TextBlob
+# import nltk
+# from nltk.tokenize import RegexpTokenizer
+# import numpy as np
 
 app = Flask(__name__)
 
@@ -31,6 +36,37 @@ def create_hash():
 
   return jsonify(hash_code)
 
+@app.route('/api/process', methods=['POST'])
+def process_string():
+  try:
+    json_body = json_loads_byteified(json.dumps(request.get_json(), ensure_ascii=False))
+  except:
+    return error_message('Unable to convert json in request body to readable format.')
+
+  if json_body is None:
+    return error_message('No valid json found in request body.')
+
+  print json_body
+
+  if json_body['inputString'] is None:
+    return error_message('inputString not found in request body.')
+
+  input_string = json_body['inputString']
+
+  if input_string == '':
+    return error_message('inputString is empty.')
+
+  blob = TextBlob(input_string)
+  POS_tags = blob.tags
+  first_word = POS_tags[0]
+
+  output_data = {
+    'sentiment_score': blob.sentiment.polarity,
+    'subjectivity_score': blob.sentiment.subjectivity,
+    'is_verb': first_word[1][:2] == 'VB'
+  }
+
+  return jsonify(output_data)
 
 @app.route('/api/pages', methods=['POST'])
 def update_page():

@@ -5,7 +5,6 @@ export default class NavBar extends React.Component {
     super(props)
   }
   render() {
-    console.log('NavBar')
     return (
       <div>
         <nav className="navbar navbar-default navbar-fixed-top" style={{position: 'inherit'}}>

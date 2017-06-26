@@ -7,7 +7,6 @@ export default class Root extends React.Component {
     super(props)
   }
 	render() {
-    console.log('Root')
     return (
       <div className='container-fluid' style={{fontFamily: "openSans"}}>
         <NavBar />
