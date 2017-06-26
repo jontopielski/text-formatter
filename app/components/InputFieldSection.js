@@ -25,7 +25,8 @@ class InputFieldSection extends React.Component {
       inputData: e.target.value
     })
   }
-  handleSubmitInput() {
+  handleSubmitInput(e) {
+    e.preventDefault()
     const inputData = this.state.inputData
     axios({
       method: 'post',
