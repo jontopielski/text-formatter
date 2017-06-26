@@ -40,7 +40,12 @@ class InputFieldSection extends React.Component {
         response: response.data
       })
     })
-    .catch((err) => console.log(err))
+    .catch((err) => {
+			console.log(err)
+			this.setState({
+				response: { 'ERROR': 'Invalid symbols found in input string. Try removing obscure symbols or retyping symbols such as apostrophes, commas, and quotes.' }
+			})
+		})
   }
   render() {
     return (

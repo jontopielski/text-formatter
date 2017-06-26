@@ -46,8 +46,6 @@ def process_string():
   if json_body is None:
     return error_message('No valid json found in request body.')
 
-  print json_body
-
   if json_body['inputString'] is None:
     return error_message('inputString not found in request body.')
 
@@ -55,6 +53,8 @@ def process_string():
 
   if input_string == '':
     return error_message('inputString is empty.')
+
+  print 'Input: ' + input_string
 
   blob = TextBlob(input_string)
   POS_tags = blob.tags
@@ -65,6 +65,9 @@ def process_string():
     'subjectivity_score': blob.sentiment.subjectivity,
     'is_verb': first_word[1][:2] == 'VB'
   }
+
+  print 'Output: '
+  print output_data
 
   return jsonify(output_data)
 
