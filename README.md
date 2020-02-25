@@ -21,5 +21,5 @@ I actively welcome pull requests. Simply fork the repo and create your branch fr
 
 Please direct all inquiries/emails to:
 ```
-jontopielski@gmail.com
+jontopielski(at)gmail.com
 ```
